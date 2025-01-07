@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MiniBoard</title>
+    <title>MiniBoard - New Message</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,12 +17,12 @@
   </head>
   <body>
     <h1>MiniBoard</h1>
-    <ul>
-      <% messages.forEach((message) => { %> <%- include("message", {message:
-      message}); %> <% }); %>
-    </ul>
-    <form action="/" method="POST">
-      <button type="submit" class="button">Send New Message</button>
+    <form action="/new" method="post" id="message--form">
+      <label for="user">Display name: </label>
+      <input type="text" name="user" id="user" required />
+      <label for="message">Message: </label>
+      <textarea name="message" id="message" required></textarea>
+      <button id="message--send">Send Message</button>
     </form>
     <%- include("footer") %>
     <div class="background">

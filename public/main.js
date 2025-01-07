@@ -4,5 +4,3 @@ window.onload = () => {
     messageContainer.scrollTop = messageContainer.scrollHeight;
   }
 };
-
-console.log("hi");
