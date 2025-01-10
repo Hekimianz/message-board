@@ -8,35 +8,12 @@ const assetsPath = path.join(__dirname, "public");
 const indexRouter = require("./routes/indexRouter");
 const formRouter = require("./routes/formRouter");
 
-const messages = [
-  {
-    text: "Hi!!!",
-    user: "Flat-pancake342",
-    added: format(new Date(), "EEE d, MMM yyyy HH:mm"),
-  },
-  {
-    text: "Im hungry, anyone want to go out?",
-    user: "RunningWater12",
-    added: format(new Date(), "EEE d, MMM yyyy HH:mm"),
-  },
-  {
-    text: "Happy new year!!!",
-    user: "Grumoz",
-    added: format(new Date(), "EEE d, MMM yyyy HH:mm"),
-  },
-  {
-    text: "Today its my two month anniversary with my special other, i was going to watch movies with her alll day long <3",
-    user: "Dire-speed",
-    added: format(new Date(), "EEE d, MMM yyyy HH:mm"),
-  },
-];
-
 app.use(express.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  res.locals.messages = messages;
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.messages = messages;
+//   next();
+// });
 
 app.use(express.static(assetsPath));
 

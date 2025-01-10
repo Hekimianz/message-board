@@ -1,17 +1,10 @@
 const { Router } = require("express");
 const { format } = require("date-fns");
 const formRouter = Router();
+const indexController = require("../controllers/indexController");
 
-formRouter.get("/", (req, res) => res.render("form"));
-formRouter.post("/", (req, res) => {
-  const { user, message } = req.body;
-  const newMessage = {
-    text: message,
-    user: user,
-    added: format(new Date(), "EEE d, MMM yyyy HH:mm"),
-  };
-  res.locals.messages.push(newMessage);
-  res.redirect("/");
-});
-
+formRouter.get("/", (req, res) =>
+  res.render("form", { title: "Add message", errors: [] }),
+);
+formRouter.post("/", indexController.messagesPost);
 module.exports = formRouter;
